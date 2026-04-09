@@ -13,213 +13,255 @@
         .heading { font-family: 'Space Grotesk', sans-serif; }
 
         .ultra-round { border-radius: 9999px !important; }
-        .card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .card:hover { transform: translateY(-12px) scale(1.03); }
+        .card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(255,255,255,0.05); }
+        .card:hover { transform: translateY(-12px) scale(1.02); border-color: #a78bfa; }
 
         .animate-on-scroll {
             opacity: 0;
-            transform: translateY(40px);
+            transform: translateY(30px);
             transition: all 0.8s ease;
         }
         .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+        
+        html { scroll-behavior: smooth; }
     </style>
 </head>
-<body class="bg-[#0f0a1f] text-white transition-colors duration-500">
+<body class="bg-[#0f0a1f] text-white">
 
-    <!-- NAVBAR -->
-    <nav class="bg-[#1a1433] sticky top-0 z-50 border-b border-white/10">
+    <nav class="bg-[#1a1433]/90 backdrop-blur-md sticky top-0 z-50 border-b border-white/10">
         <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <span class="heading text-3xl font-semibold text-[#a78bfa]">Ny Aina</span>
             </div>
 
-            <div class="hidden md:flex items-center gap-8 text-base font-medium">
-                <a href="#accueil" class="hover:text-[#a78bfa]">Accueil</a>
-                <a href="#apropos" class="hover:text-[#a78bfa]">À propos</a>
-                <a href="#competences" class="hover:text-[#a78bfa]">Compétences</a>
-                <a href="#projets" class="hover:text-[#a78bfa]">Projets</a>
-                <a href="#formation" class="hover:text-[#a78bfa]">Formation</a>
-                <a href="#contact" class="hover:text-[#a78bfa]">Contact</a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium uppercase tracking-wider">
+                <a href="#accueil" class="hover:text-[#a78bfa] transition">Accueil</a>
+                <a href="#apropos" class="hover:text-[#a78bfa] transition">À propos</a>
+                <a href="#competences" class="hover:text-[#a78bfa] transition">Compétences</a>
+                <a href="#projets" class="hover:text-[#a78bfa] transition">Projets</a>
+                <a href="#formation" class="hover:text-[#a78bfa] transition">Formation</a>
+                <a href="#contact" class="hover:text-[#a78bfa] transition">Contact</a>
             </div>
 
             <div class="flex items-center gap-4">
-                <!-- Mode Sombre / Clair -->
-                <button onclick="toggleTheme()" id="themeBtn" class="w-10 h-10 flex items-center justify-center text-xl rounded-full bg-white/10 hover:bg-white/20">
-                    <i class="fas fa-moon" id="themeIcon"></i>
-                </button>
-
-                <button onclick="downloadCV()" class="flex items-center gap-2 bg-[#a78bfa] text-black font-semibold px-6 py-3 rounded-full text-sm hover:bg-white">
-                    <i class="fas fa-download"></i>
-                    <span class="hidden sm:inline">CV</span>
-                </button>
-
-                <button onclick="toggleMobileMenu()" class="md:hidden text-3xl">
-                    <i class="fas fa-bars"></i>
+                <button onclick="downloadCV()" class="flex items-center gap-2 bg-[#a78bfa] text-black font-bold px-6 py-2.5 rounded-full text-sm hover:bg-white transition">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>MON CV</span>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- HERO -->
-    <section id="accueil" class="hero-bg min-h-screen flex flex-col items-center justify-center text-center px-6 py-12">
-        <div class="max-w-2xl">
-            <div class="inline-flex items-center gap-2 bg-[#a78bfa]/10 text-[#a78bfa] px-6 py-2 rounded-full text-sm mb-6">
-                <i class="fas fa-code"></i> Développeur Full Stack
+    <section id="accueil" class="min-h-screen flex flex-col items-center justify-center text-center px-6 py-20">
+        <div class="max-w-3xl animate-on-scroll visible">
+            <div class="inline-flex items-center gap-2 bg-[#a78bfa]/10 text-[#a78bfa] px-6 py-2 rounded-full text-sm font-bold mb-8 uppercase tracking-widest">
+                <i class="fas fa-laptop-code"></i> Futur Ingénieur Informatique
             </div>
-            <h1 class="heading text-5xl md:text-6xl font-semibold leading-tight mb-4">
-                RANDRIANASOLO<br>NY AINA FANDRESENA
+            <h1 class="heading text-5xl md:text-7xl font-bold leading-tight mb-6">
+                RANDRIANASOLO<br><span class="text-[#a78bfa]">NY AINA FANDRESENA</span>
             </h1>
-            <p class="text-3xl text-[#a78bfa] font-medium mb-8">Chargé de Projet • Développeur Web & DevOps</p>
-            <p class="text-lg text-gray-300 mb-10">
-                Étudiant en Licence 2 Informatique à l'EMIT Fianarantsoa<br>
-                Certifié DevOps – ODC Fianarantsoa (26 mars 2026)
+            <p class="text-2xl md:text-3xl text-gray-400 font-light mb-10 uppercase tracking-tighter">
+                Chargée de Projet • Développeur Full Stack
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#projets" class="bg-[#a78bfa] text-black font-semibold px-10 py-5 rounded-full flex items-center justify-center gap-3">Voir mes projets</a>
-                <a href="#contact" class="border border-white/40 hover:border-[#a78bfa] px-10 py-5 rounded-full">Me contacter</a>
+                <a href="#projets" class="bg-[#a78bfa] text-black font-bold px-10 py-5 rounded-full hover:shadow-[0_0_20px_rgba(167,139,250,0.4)] transition">Explorer mes projets</a>
+                <a href="#contact" class="border border-white/20 hover:bg-white/5 px-10 py-5 rounded-full transition">Discutons ensemble</a>
             </div>
 
-            <div class="mt-16">
-                <div class="w-64 h-64 mx-auto overflow-hidden border-8 border-[#a78bfa] ultra-round">
+            <div class="mt-16 relative">
+                <div class="w-56 h-56 mx-auto overflow-hidden border-4 border-[#a78bfa] ultra-round shadow-2xl">
                     <img src="aina.png" alt="Ny Aina Fandresena" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- À PROPOS -->
-    <section id="apropos" class="max-w-6xl mx-auto px-6 py-20">
-        <h2 class="text-4xl font-semibold text-center mb-8">À propos de moi</h2>
-        <div class="max-w-3xl mx-auto text-center text-lg leading-relaxed text-gray-300">
-            Passionné par le développement web et les technologies DevOps, je transforme des idées en solutions concrètes et performantes.
-        </div>
+    <section id="apropos" class="max-w-5xl mx-auto px-6 py-24 text-center">
+        <h2 class="heading text-4xl font-bold mb-10">À propos de moi</h2>
+        <p class="text-xl leading-relaxed text-gray-300">
+            Basé à <span class="text-white font-semibold italic">Soanierana</span>, je suis actuellement en <span class="text-[#a78bfa] font-bold uppercase">Licence 3 (L3)</span> en Informatique à l'EMIT Fianarantsoa[cite: 6, 10]. Passionné par l'innovation logicielle, je mets mes compétences techniques au service de solutions concrètes, qu'il s'agisse de développement web, desktop ou de projets Python complexes[cite: 24, 27, 31].
+        </p>
     </section>
 
-    <!-- COMPÉTENCES -->
-    <section id="competences" class="bg-[#1a1433] py-20">
+    <section id="competences" class="bg-[#1a1433] py-24">
         <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-semibold text-center mb-12">Compétences techniques</h2>
+            <h2 class="heading text-4xl font-bold text-center mb-16">Expertise Technique</h2>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="card bg-[#0f0a1f] p-8 text-center">Langages de programmation</div>
-                <div class="card bg-[#0f0a1f] p-8 text-center">Bases de données & Web</div>
-                <div class="card bg-[#0f0a1f] p-8 text-center">Outils & DevOps</div>
+                <div class="card bg-[#0f0a1f] p-8 rounded-3xl animate-on-scroll">
+                    <div class="text-[#a78bfa] text-3xl mb-6"><i class="fas fa-terminal"></i></div>
+                    <h3 class="text-xl font-bold mb-6">Programmation</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-lg text-sm italic">Python [cite: 18]</span>
+                        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-lg text-sm italic">C / C++ [cite: 18]</span>
+                        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-lg text-sm italic">PHP [cite: 18]</span>
+                        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-lg text-sm italic">C# [cite: 31]</span>
+                    </div>
+                </div>
+
+                <div class="card bg-[#0f0a1f] p-8 rounded-3xl animate-on-scroll">
+                    <div class="text-[#a78bfa] text-3xl mb-6"><i class="fas fa-layer-group"></i></div>
+                    <h3 class="text-xl font-bold mb-6">Web & Bases de données</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-lg text-sm italic">HTML / CSS [cite: 18]</span>
+                        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-lg text-sm italic">JavaScript [cite: 25]</span>
+                        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-lg text-sm italic">MySQL [cite: 25]</span>
+                        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-lg text-sm italic">MS Access [cite: 16]</span>
+                    </div>
+                </div>
+
+                <div class="card bg-[#0f0a1f] p-8 rounded-3xl animate-on-scroll">
+                    <div class="text-[#a78bfa] text-3xl mb-6"><i class="fas fa-tools"></i></div>
+                    <h3 class="text-xl font-bold mb-6">Systèmes & Outils</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-[#a78bfa] text-black font-bold px-4 py-2 rounded-lg text-sm uppercase shadow-lg shadow-[#a78bfa]/20">Certifié DevOps (2026)</span>
+                        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-lg text-sm italic">Kali Linux [cite: 17]</span>
+                        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-lg text-sm italic">VS Code [cite: 18]</span>
+                        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-lg text-sm italic">Office Suite [cite: 16]</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- PROJETS -->
-    <section id="projets" class="max-w-6xl mx-auto px-6 py-20">
-        <h2 class="text-4xl font-semibold text-center mb-12">Projets réalisés</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="card bg-[#1a1433] p-8 animate-on-scroll">
-                <h3 class="text-2xl font-semibold mb-3">Application Web de Gestion</h3>
-                <p class="text-gray-400">PHP, MySQL, JavaScript, HTML/CSS</p>
+    <section id="projets" class="max-w-6xl mx-auto px-6 py-24">
+        <h2 class="heading text-4xl font-bold text-center mb-16">Réalisations Académiques</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="card bg-[#1a1433] p-10 rounded-3xl animate-on-scroll">
+                <span class="text-[#a78bfa] text-sm font-bold tracking-widest uppercase">Desktop Development [cite: 31]</span>
+                <h3 class="text-2xl font-bold mt-4 mb-4">Gestion des Visites d'un Parc</h3>
+                <p class="text-gray-400 mb-6">Développement d'une application Desktop robuste en C# avec base de données intégrée via Visual Studio 2012[cite: 31].</p>
+                <div class="flex gap-4 text-xs font-mono bg-black/30 p-2 rounded-lg w-fit">
+                    <span class="text-[#a78bfa]">C#</span> <span class="text-[#a78bfa]">Visual Studio</span> <span class="text-[#a78bfa]">SQL</span>
+                </div>
             </div>
-            <div class="card bg-[#1a1433] p-8 animate-on-scroll">
-                <h3 class="text-2xl font-semibold mb-3">Gestion de Vente de Logements</h3>
-                <p class="text-gray-400">Python – Projet académique</p>
+
+            <div class="card bg-[#1a1433] p-10 rounded-3xl animate-on-scroll">
+                <span class="text-[#a78bfa] text-sm font-bold tracking-widest uppercase">Web Development [cite: 24]</span>
+                <h3 class="text-2xl font-bold mt-4 mb-4">Application Web en PHP</h3>
+                <p class="text-gray-400 mb-6">Conception et réalisation d'une plateforme web utilisant PHP, MySQL et JavaScript avec une interface utilisateur dynamique[cite: 25, 26].</p>
+                <div class="flex gap-4 text-xs font-mono bg-black/30 p-2 rounded-lg w-fit">
+                    <span class="text-[#a78bfa]">PHP</span> <span class="text-[#a78bfa]">MySQL</span> <span class="text-[#a78bfa]">JS</span>
+                </div>
             </div>
-            <div class="card bg-[#1a1433] p-8 animate-on-scroll">
-                <h3 class="text-2xl font-semibold mb-3">Gestion des Visites de Parc</h3>
-                <p class="text-gray-400">C# Desktop + version web avec MyAcces</p>
+
+            <div class="card bg-[#1a1433] p-10 rounded-3xl animate-on-scroll">
+                <span class="text-[#a78bfa] text-sm font-bold tracking-widest uppercase">Python Académique [cite: 27]</span>
+                <h3 class="text-2xl font-bold mt-4 mb-4">Gestion de Vente de Logement</h3>
+                <p class="text-gray-400 mb-6">Programmation d'un système de gestion commerciale complexe réalisé durant mon parcours académique[cite: 28].</p>
+                <div class="flex gap-4 text-xs font-mono bg-black/30 p-2 rounded-lg w-fit">
+                    <span class="text-[#a78bfa]">Python</span> <span class="text-[#a78bfa]">PyCharm</span>
+                </div>
+            </div>
+
+            <div class="card bg-[#1a1433] p-10 rounded-3xl animate-on-scroll">
+                <span class="text-[#a78bfa] text-sm font-bold tracking-widest uppercase">Database Design [cite: 30]</span>
+                <h3 class="text-2xl font-bold mt-4 mb-4">Système de Parc avec MyAccess</h3>
+                <p class="text-gray-400 mb-6">Conception d'une application de gestion de visites optimisée pour une utilisation locale[cite: 30].</p>
+                <div class="flex gap-4 text-xs font-mono bg-black/30 p-2 rounded-lg w-fit">
+                    <span class="text-[#a78bfa]">MS Access</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FORMATION -->
-    <section id="formation" class="bg-[#1a1433] py-20">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-semibold text-center mb-12">Ma formation</h2>
+    <section id="formation" class="bg-[#1a1433] py-24">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="heading text-4xl font-bold text-center mb-16">Mon Parcours</h2>
+            <div class="relative border-l-2 border-[#a78bfa]/30 ml-4 md:ml-0 md:left-1/2">
+                <div class="mb-12 relative md:right-full md:pr-12 md:text-right">
+                    <div class="absolute w-4 h-4 bg-[#a78bfa] rounded-full -left-[9px] md:left-auto md:-right-[9px] top-1 shadow-[0_0_10px_#a78bfa]"></div>
+                    <h3 class="text-2xl font-bold text-white">Licence en Informatique (L3)</h3>
+                    <p class="text-[#a78bfa] font-semibold italic uppercase">EMIT Fianarantsoa | 2025 - 2026 </p>
+                </div>
+                <div class="mb-12 relative pl-12">
+                    <div class="absolute w-4 h-4 bg-green-500 rounded-full -left-[9px] top-1"></div>
+                    <h3 class="text-2xl font-bold">Spécialisation DevOps</h3>
+                    <p class="text-green-400 font-semibold italic uppercase">Certifié ODC Fianarantsoa | 2026</p>
+                </div>
+                <div class="mb-12 relative md:right-full md:pr-12 md:text-right">
+                    <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-[9px] md:left-auto md:-right-[9px] top-1"></div>
+                    <h3 class="text-2xl font-bold text-gray-300">Licence en Informatique (L2)</h3>
+                    <p class="text-gray-500 italic uppercase">EMIT Fianarantsoa | 2024 - 2025 </p>
+                </div>
+                <div class="mb-12 relative pl-12">
+                    <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-[9px] top-1"></div>
+                    <h3 class="text-2xl font-bold text-gray-300">Licence en Informatique (L1)</h3>
+                    <p class="text-gray-500 italic uppercase">EMIT Fianarantsoa | 2023 - 2024 [cite: 8]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="max-w-6xl mx-auto px-6 py-24">
+        <h2 class="heading text-4xl font-bold text-center mb-16">Me Contacter</h2>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
             <div class="space-y-8">
-                <div class="card bg-[#0f0a1f] p-8 flex justify-between items-center">
-                    <div>
-                        <h3 class="text-2xl font-semibold">Formation DevOps</h3>
-                        <p class="text-[#a78bfa]">ODC Fianarantsoa</p>
+                <div class="flex items-center gap-6">
+                    <div class="w-14 h-14 bg-[#1a1433] flex items-center justify-center rounded-2xl text-[#a78bfa] text-xl">
+                        <i class="fas fa-envelope"></i>
                     </div>
-                    <div class="text-right">
-                        <span class="text-sm">Mars 2026</span>
-                        <p class="text-xs text-[#a78bfa]">Certificat obtenu le 26 mars 2026</p>
+                    <div>
+                        <p class="text-gray-400 text-sm italic lowercase">ainafandresena2006@gmail.com [cite: 9]</p>
                     </div>
                 </div>
-                <div class="card bg-[#0f0a1f] p-8 flex justify-between items-center">
-                    <div>
-                        <h3 class="text-2xl font-semibold">Licence en Informatique (L2)</h3>
-                        <p class="text-gray-400">EMIT Fianarantsoa • 2024 - 2025</p>
+                <div class="flex items-center gap-6">
+                    <div class="w-14 h-14 bg-[#1a1433] flex items-center justify-center rounded-2xl text-[#a78bfa] text-xl">
+                        <i class="fas fa-phone"></i>
                     </div>
+                    <div>
+                        <p class="text-lg font-semibold uppercase">+261 38 422 50 75 [cite: 2]</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <a href="https://wa.me/261384225075" target="_blank" class="bg-[#25D366] text-black w-12 h-12 flex items-center justify-center rounded-full hover:scale-110 transition shadow-lg shadow-green-500/20"><i class="fab fa-whatsapp text-2xl"></i></a>
+                    <a href="mailto:ainafandresena2006@gmail.com" class="bg-blue-600 text-white w-12 h-12 flex items-center justify-center rounded-full hover:scale-110 transition shadow-lg shadow-blue-500/20"><i class="fas fa-paper-plane text-xl"></i></a>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="max-w-6xl mx-auto px-6 py-20">
-        <h2 class="text-4xl font-semibold text-center mb-12">Me contacter</h2>
-        <div class="max-w-2xl mx-auto bg-[#1a1433] p-10 rounded-3xl">
-            <form onsubmit="handleSubmit(event)" class="space-y-6">
-                <input type="text" placeholder="Votre nom complet" class="w-full bg-[#0f0a1f] rounded-full px-8 py-5 outline-none">
-                <input type="email" placeholder="Votre adresse email" class="w-full bg-[#0f0a1f] rounded-full px-8 py-5 outline-none">
-                <textarea placeholder="Votre message..." rows="5" class="w-full bg-[#0f0a1f] rounded-3xl px-8 py-5 outline-none"></textarea>
-                <button type="submit" class="w-full bg-[#a78bfa] text-black font-semibold py-6 rounded-full text-lg">Envoyer le message</button>
+            <form onsubmit="handleSubmit(event)" class="bg-[#1a1433] p-10 rounded-3xl space-y-6 shadow-2xl">
+                <input type="text" placeholder="Votre Nom" class="w-full bg-[#0f0a1f] border border-white/10 rounded-xl px-6 py-4 focus:border-[#a78bfa] outline-none transition">
+                <input type="email" placeholder="Email" class="w-full bg-[#0f0a1f] border border-white/10 rounded-xl px-6 py-4 focus:border-[#a78bfa] outline-none transition">
+                <textarea placeholder="Comment puis-je vous aider ?" rows="4" class="w-full bg-[#0f0a1f] border border-white/10 rounded-xl px-6 py-4 focus:border-[#a78bfa] outline-none transition"></textarea>
+                <button type="submit" class="w-full bg-[#a78bfa] text-black font-bold py-4 rounded-xl hover:bg-white transition uppercase tracking-widest shadow-lg shadow-[#a78bfa]/20">Envoyer le message</button>
             </form>
-
-            <div class="mt-10 flex flex-col sm:flex-row gap-4">
-                <a href="mailto:ainafandresena2006@gmail.com" class="flex-1 flex items-center justify-center gap-3 bg-[#1a1433] hover:bg-[#a78bfa] hover:text-black py-5 rounded-full text-lg font-medium">
-                    <i class="fas fa-envelope"></i> Envoyer un Email
-                </a>
-                <a href="https://wa.me/261384225075?text=Bonjour%20Ny%20Aina%2C%20j%27ai%20vu%20votre%20portfolio%20!" target="_blank" class="flex-1 flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20c45e] py-5 rounded-full text-lg font-medium text-black">
-                    <i class="fab fa-whatsapp"></i> Message WhatsApp
-                </a>
-            </div>
         </div>
     </section>
 
-    <!-- FOOTER avec liens sociaux -->
-    <footer class="bg-[#0f0a1f] py-12 border-t border-white/10">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <div class="flex justify-center gap-8 text-4xl mb-8">
-                <a href="https://facebook.com/" target="_blank" class="hover:text-[#a78bfa]"><i class="fab fa-facebook"></i></a>
-                <a href="https://linkedin.com/" target="_blank" class="hover:text-[#a78bfa]"><i class="fab fa-linkedin"></i></a>
-                <a href="https://instagram.com/" target="_blank" class="hover:text-[#a78bfa]"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/261384225075" target="_blank" class="hover:text-[#25D366]"><i class="fab fa-whatsapp"></i></a>
-            </div>
-            <p class="text-gray-400 text-sm">© 2026 Randrianasolo Ny Aina Fandresena</p>
+    <footer class="py-12 border-t border-white/10 text-center text-gray-500 text-sm">
+        <div class="flex justify-center gap-6 mb-4 text-gray-400">
+            <span class="hover:text-[#a78bfa] cursor-default">Malgache [cite: 12]</span>
+            <span class="hover:text-[#a78bfa] cursor-default">Française [cite: 13]</span>
+            <span class="hover:text-[#a78bfa] cursor-default">Anglais [cite: 14]</span>
         </div>
+        <p>© 2026 RANDRIANASOLO Ny Aina Fandresena • Fianarantsoa</p>
     </footer>
 
     <script>
-        // Mode Sombre / Clair
-        function toggleTheme() {
-            document.documentElement.classList.toggle('light-mode');
-            const icon = document.getElementById('themeIcon');
-            icon.classList.toggle('fa-moon');
-            icon.classList.toggle('fa-sun');
-        }
-
-        // Animation au scroll
-        window.addEventListener('scroll', () => {
-            document.querySelectorAll('.animate-on-scroll').forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-                    el.classList.add('visible');
+        // Initialisation de l'observateur pour les animations au scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
                 }
             });
-        });
+        }, { threshold: 0.1 });
 
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+        // Fonction pour télécharger le CV
         function downloadCV() {
             const link = document.createElement('a');
-            link.href = 'Ny Aina Fandresena.pdf';
+            link.href = 'Ny Aina Fandresena.pdf'; // Assure-toi que le fichier est dans le même dossier
             link.download = 'CV_Ny_Aina_Fandresena.pdf';
             link.click();
         }
 
+        // Gestion factice de l'envoi du formulaire
         function handleSubmit(e) {
             e.preventDefault();
-            alert('✅ Message envoyé avec succès !');
+            alert('✅ Votre message a été envoyé avec succès ! Je reviendrai vers vous très vite.');
             e.target.reset();
-        }
-
-        function toggleMobileMenu() {
-            alert("Menu mobile (tu peux l'améliorer plus tard)");
         }
     </script>
 </body>
